@@ -1,24 +1,31 @@
 {
   "name": "Netflix Switchy",
-  "description": "The power of React and TypeScript for building interactive Chrome extensions",
+  "description": "Extension to quickly switch between Polish and English subtitles on Netflix",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
       "default_popup": "index.html",
-      "default_title": "Open the popup"
+      "default_title": "Netflix Switchy"
   },
   "icons": {
       "16": "logo192.png",
       "48": "logo192.png",
       "128": "logo192.png"
   },
+  "host_permissions": [
+    "https://www.netflix.com/*"
+  ],
   "permissions": [
-    "activeTab"
+    "tabs"
  ],
  "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": ["https://www.netflix.com/*"],
       "js": ["./static/js/content.js"]
     }
-  ]
+  ],
+  "web_accessible_resources": [{
+    "resources": ["switch.js"],
+    "matches": ["https://www.netflix.com/*"]
+  }]
 }

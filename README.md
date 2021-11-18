@@ -1,3 +1,8 @@
+## About
+Plugin to quickly switch between Polish and English subtitles on Netflix
+
+Use "P" or "E" key to switch subtitles on Netflix player
+
 ## Instalation
 
 ```bash

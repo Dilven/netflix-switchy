@@ -1,23 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import { DOMMessage, DOMMessageResponse } from './types/dom-messages';
 
 function App() {
+  useEffect(() => {
+    chrome.tabs && chrome.tabs.query({
+      active: true,
+      currentWindow: true
+    }, tabs => {
+      chrome.tabs.sendMessage(
+        tabs[0].id || 0,
+        { type: 'on_mount' } as DOMMessage,
+        (response: DOMMessageResponse) => {
+          console.log("🚀 ~ file: App.tsx ~ line 30 ~ useEffect ~ response", response)
+        });
+    });
+  });
+  
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Use "P" or "E" key to switch subtitles on Netflix
       </header>
     </div>
   );
