@@ -6,6 +6,7 @@ module.exports = {
                 entry: {
                     main: [env === 'development' && require.resolve('react-dev-utils/webpackHotDevClient'),paths.appIndexJs].filter(Boolean),
                     content: './src/chromeServices/DOMEvaluator.ts',
+                    switch: './src/switch.ts',
                 },
                 output: {
                     ...webpackConfig.output,

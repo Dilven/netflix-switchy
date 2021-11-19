@@ -12,7 +12,7 @@ const messagesFromReactAppListener = (
 chrome.runtime.onMessage.addListener(messagesFromReactAppListener);
 
 var customScript: any = document.createElement('script');
-customScript.src = chrome.runtime.getURL('switch.js');
+customScript.src = chrome.runtime.getURL('/static/js/switch.js');
 customScript.onload = function() {
     this.remove();
 };

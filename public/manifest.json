@@ -25,7 +25,7 @@
     }
   ],
   "web_accessible_resources": [{
-    "resources": ["switch.js"],
+    "resources": ["/static/js/switch.js"],
     "matches": ["https://www.netflix.com/*"]
   }]
 }
